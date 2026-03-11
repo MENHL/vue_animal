@@ -1,0 +1,6 @@
+// 或者如果你想保留 Sass 变量并将其赋值给 CSS 变量
+$background-color: pink;
+
+:root {
+  --ph--background-color: #{$background-color};
+}
