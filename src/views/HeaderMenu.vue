@@ -82,12 +82,11 @@ const updateCurrentKey = () => {
 
 // 3. 组件挂载时：初始化菜单状态
 onMounted(() => {
+   // 初始化时也检查一次（防止页面直接在中间尺寸打开）
+   updateCurrentKey();
    // 组件挂载时添加监听
    window.addEventListener('resize', handleResize);
-   // 初始化时也检查一次（防止页面直接在中间尺寸打开）
-   updateCurrentKey(),
-
-      handleResize();
+   handleResize();
 })
 
 onUnmounted(() => {
@@ -99,9 +98,11 @@ onUnmounted(() => {
 // 4. 监听路由变化：当用户点击浏览器前进/后退按钮或编程式导航时，同步菜单高亮
 watch(
    () => route.path,
-   () => { open.value = false },
-   () => { updateCurrentKey() }
-)
+   () => {
+      open.value = false;        // 路由变化关闭抽屉
+      updateCurrentKey();        // 更新菜单高亮
+   }
+);
 // 菜单栏数据生成逻辑（保持不变）
 const items = computed(() => {
    return router
