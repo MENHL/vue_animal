@@ -57,8 +57,6 @@ const onClose = () => {
    open.value = false;
 };
 
-
-
 const router = useRouter()
 // 1. 引入 useRoute 用于获取当前路径
 const route = useRoute()
@@ -127,9 +125,6 @@ const tomenu = ({ key }) => {
    router.push(key)
    // 注意：这里不需要手动改 current，因为 watch 监听了路由变化会自动改
 }
-
-
-
 </script>
 
 <style lang="scss" scoped>
@@ -160,6 +155,7 @@ const tomenu = ({ key }) => {
       padding-right: 60px;
 
       .header-menu {
+         background-color: $background-color;
          // 去除默认底部边框
          border-bottom: none;
          display: block;

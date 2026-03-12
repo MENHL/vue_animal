@@ -1,6 +1,6 @@
 <template>
-    <div id="contact" class="banner">
-        联系我们
+    <div id="contact">
+        <h1>联系我们</h1>
     </div>
 </template>
 

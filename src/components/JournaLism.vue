@@ -1,6 +1,6 @@
 <template>
-    <div id="journalism" class="banner">
-        新闻资讯
+    <div id="journalism">
+        <h1>新闻资讯</h1>
     </div>
 </template>
 

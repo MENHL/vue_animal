@@ -1,5 +1,5 @@
 <template>
-  <div id="homeView" class="banner ">
+  <div id="homeView">
     <h1>首页</h1>
   </div>
 </template>

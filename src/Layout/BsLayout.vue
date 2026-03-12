@@ -21,24 +21,15 @@ import HeaderMenu from '@/views/HeaderMenu.vue';
 
 <style lang="scss" scoped>
 .header {
-    background-color: white;
+    background-color: $background-color;
     color: unset;
     padding: 0px 0.5vw;
 }
 
 .content {
-    background-color: white;
     height: calc(100vh - 64px);
 }
 
 /* 移动端样式 */
-@media screen and (max-width: 768px) {
-
-    .header {
-        background-color: rgba(65, 81, 101, 0.9);
-    }
-
-
-
-}
+@media screen and (max-width: 768px) {}
 </style>
