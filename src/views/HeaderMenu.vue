@@ -4,7 +4,7 @@
          <!-- logo和标题 -->
          <a-col :span="14">
             <div class="title_bar">
-               <img class="logo" src="@/assets/logo.svg" alt="logo" />
+               <img class="logo" src="@/assets/logo.png" alt="logo" />
                <div class="title">宠物回忆录</div>
             </div>
          </a-col>
@@ -135,7 +135,6 @@ const tomenu = ({ key }) => {
 <style lang="scss" scoped>
 #globeTopMenu {
 
-
    // 标题logo区域
    .title_bar {
       display: flex;
@@ -154,7 +153,6 @@ const tomenu = ({ key }) => {
 
    // 菜单栏
    .header-col {
-
       display: flex;
       align-items: center;
 
@@ -180,15 +178,6 @@ const tomenu = ({ key }) => {
          }
       }
    }
-
-   .globe_move {
-
-      .drawer {
-         // background-color: white;
-
-      }
-   }
-
 
    /* 移动端样式 */
    @media screen and (max-width: 768px) {
