@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { h, ref, computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 
@@ -39,7 +39,7 @@ onMounted(() => {
 // 4. 监听路由变化：当用户点击浏览器前进/后退按钮或编程式导航时，同步菜单高亮
 watch(
     () => route.path,
-   
+
     () => { updateCurrentKey() }
 )
 // 菜单栏数据生成逻辑（保持不变）
@@ -53,11 +53,6 @@ const items = computed(() => {
                 key: path,
                 label: meta.title,
                 title: meta.title,
-                // 在这里统一控制所有图标的大小
-                icon: () =>
-                    h(meta.icon, {
-                        style: { fontSize: '16px' },
-                    }),
             }
         })
 })

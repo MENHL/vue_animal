@@ -19,7 +19,7 @@
       </a-row>
       <!-- 移动显示 -->
       <div class="globe_move">
-         <a-drawer class="drawer" :width="278" :placement="placement" :closable="false" :open="open" @close="onClose">
+         <a-drawer class="drawer" :height="228" :placement="placement" :closable="false" :open="open" @close="onClose">
             <HeaderMove />
          </a-drawer>
       </div>
@@ -32,7 +32,7 @@ import HeaderMove from '@/components/HeaderMove.vue';
 import { h, ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
-const placement = ref('left');
+const placement = ref('top');
 const open = ref(false);
 let resizeTimer = null; // 用于防抖
 
