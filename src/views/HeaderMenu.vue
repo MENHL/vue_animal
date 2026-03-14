@@ -5,7 +5,7 @@
          <a-col :span="14">
             <div class="title_bar">
                <img class="logo" src="@/assets/logo.png" alt="logo" />
-               <div class="title">宠物回忆录</div>
+               <div class="title">毛孩子</div>
             </div>
          </a-col>
          <!-- 菜单栏 -->
@@ -141,8 +141,10 @@ const tomenu = ({ key }) => {
       }
 
       .title {
+         color: var(--gl-color);
          font-size: 16px;
          margin-left: 8px;
+
       }
    }
 
@@ -201,6 +203,31 @@ const tomenu = ({ key }) => {
 
          .bars {
             display: block;
+         }
+      }
+   }
+
+   @media screen and (max-width: 350px) {
+
+      // logo和标题区域调整
+      .title_bar {
+         display: none;
+      }
+
+      // 菜单栏
+      .header-col {
+
+         // 汉堡组件
+         .bars {
+            // display: none;
+            position: absolute;
+            right: 10%;
+            top: 50%;
+
+            .header_bars {
+               width: 25px;
+               height: 35px;
+            }
          }
       }
    }

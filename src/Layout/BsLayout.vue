@@ -27,6 +27,7 @@ import HeaderMenu from '@/views/HeaderMenu.vue';
 }
 
 .content {
+    background-color: $font-color;
     height: calc(100vh - 64px);
 }
 

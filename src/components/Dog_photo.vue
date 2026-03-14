@@ -1,6 +1,6 @@
 <template>
     <div id="journalism">
-        <h1>新闻资讯</h1>
+        <h1>相册</h1>
     </div>
 </template>
 

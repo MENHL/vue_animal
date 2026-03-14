@@ -11,7 +11,6 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 
-
 const router = useRouter()
 // 1. 引入 useRoute 用于获取当前路径
 const route = useRoute()
@@ -39,7 +38,6 @@ onMounted(() => {
 // 4. 监听路由变化：当用户点击浏览器前进/后退按钮或编程式导航时，同步菜单高亮
 watch(
     () => route.path,
-
     () => { updateCurrentKey() }
 )
 // 菜单栏数据生成逻辑（保持不变）

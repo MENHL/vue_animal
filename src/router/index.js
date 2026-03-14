@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import HomeView from '@/components/HomeView.vue'
 // 图标可以在路由层引入，也可以在菜单层引入。这里为了数据完整，先引入。
-import { CrownOutlined, CompassOutlined, AppstoreOutlined } from '@ant-design/icons-vue';
+import { CrownOutlined, PictureOutlined, SmileOutlined } from '@ant-design/icons-vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,10 +23,20 @@ const router = createRouter({
     {
       path: '/journalism',
       name: 'journalism',
-      component: () => import('@/components/JournaLism.vue'),
+      component: () => import('@/components/Dog_photo.vue'),
       meta: {
-        title: '新闻资讯',
-        icon: CompassOutlined,
+        title: 'Dog',
+        icon: PictureOutlined,
+        showInMenu: true,
+      }
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('@/components/Cat_photo.vue'),
+      meta: {
+        title: 'Kitty',
+        icon: PictureOutlined,
         showInMenu: true,
       }
     },
@@ -37,20 +46,11 @@ const router = createRouter({
       component: () => import('@/components/AboutView.vue'),
       meta: {
         title: '关于我们',
-        icon: AppstoreOutlined,
+        icon: SmileOutlined,
         showInMenu: true,
       }
     },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('@/components/ConTact.vue'),
-      meta: {
-        title: '联系我们',
-        icon: AppstoreOutlined,
-        showInMenu: true,
-      }
-    },
+
   ],
 })
 
