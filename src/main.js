@@ -6,7 +6,6 @@ import * as Icons from '@ant-design/icons-vue'// 引入icon图标样式
 import 'animate.css';
 // 懒加载插件
 
-
 import { createApp } from 'vue'
 // 引入pinia
 import { createPinia } from 'pinia'

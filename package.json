@@ -17,6 +17,7 @@
     "ant-design-vue": "^4.2.6",
     "masonry-layout": "^4.2.2",
     "pinia": "^3.0.4",
+    "swiper": "^12.1.2",
     "vue": "^3.5.28",
     "vue-awesome-swiper": "^5.0.1",
     "vue-router": "^5.0.2",

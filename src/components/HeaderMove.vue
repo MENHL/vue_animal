@@ -25,7 +25,7 @@ const updateCurrentKey = () => {
         // 如果在菜单里，高亮当前路径
         current.value = [route.path]
     } else {
-        // 如果不在菜单里（例如重定向或无效路径），可以默认高亮首页（可选）
+        // 如果不在菜单里（例如重定向或无效路径），可以默认高亮首页
         // current.value = ['/home'];
         // 或者保持为空
         current.value = []

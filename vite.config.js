@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueDevTools from 'vite-plugin-vue-devtools'
+// import vueDevTools from 'vite-plugin-vue-devtools'
 
 
 // https://vite.dev/config/
@@ -14,7 +14,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    vueDevTools(),
+    // vueDevTools(),
   ],
   resolve: {
     alias: {
@@ -24,7 +24,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // 注意：这里使用 @use 语法，并确保路径正确
+        // 这里使用 @use 语法，并确保路径正确
         additionalData: '@use "@/styles/global.scss" as *;',
       },
     },

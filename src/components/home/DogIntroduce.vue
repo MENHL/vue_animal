@@ -14,45 +14,44 @@
 // 定义图片数组
 const images = [
     {
-        src: new URL('../../assets/images/cat/cat1.jpg', import.meta.url).href,
-        alt: 'Chausie',
+        src: new URL('../../assets/images/c_cat2.jpg', import.meta.url).href,
+        alt: 'c_cat2',
 
     },
     {
-        src: new URL('../../assets/images/dog/nisakorn.jpg', import.meta.url).href,
-        alt: 'Dog Cat',
+        src: new URL('../../assets/images/d_nisakorn.jpg', import.meta.url).href,
+        alt: 'c_nisakorn',
 
     },
     {
-        src: new URL('../../assets/images/dog/pug.jpg', import.meta.url).href,
-        alt: 'Pug',
+        src: new URL('../../assets/images/d_pug.jpg', import.meta.url).href,
+        alt: 'd_pug',
 
     },
     {
-        src: new URL('../../assets/images/penguin/pixabay.jpg', import.meta.url).href,
-        alt: 'pixabay',
+        src: new URL('../../assets/images/p_pixabay.jpg', import.meta.url).href,
+        alt: 'p_pixabay',
 
     },
     {
-        src: new URL('../../assets/images/penguin/jvdm.jpg', import.meta.url).href,
-        alt: 'jvdm',
+        src: new URL('../../assets/images/p_jvdm.jpg', import.meta.url).href,
+        alt: 'p_jvdm',
 
     },
 
     {
-        src: new URL('../../assets/images/cat/azatskaya.jpg', import.meta.url).href,
+        src: new URL('../../assets/images/c_azatskaya.jpg', import.meta.url).href,
         alt: 'azatskaya',
 
     },
     {
-        src: new URL('../../assets/images/cat/kumpicki.jpg', import.meta.url).href,
-        alt: 'kumpicki',
+        src: new URL('../../assets/images/c_kumpicki.jpg', import.meta.url).href,
+        alt: 'c_kumpicki',
 
     },
     {
-        src: new URL('../../assets/images/cat/pixabay2.jpg', import.meta.url).href,
-        alt: 'pixabay2',
-
+        src: new URL('../../assets/images/c_pixabay2.jpg', import.meta.url).href,
+        alt: 'c_pixabay2',
     },
 ]
 </script>
@@ -72,8 +71,8 @@ const images = [
     }
 
     .dog_row {
-        width: 1200px;
-        height: 550px; // 容器高度（可选）
+        max-width: 1200px;
+        max-height: 550px; // 容器高度（可选）
         margin: 0 auto;
         background-color: $font-color;
 
@@ -87,15 +86,11 @@ const images = [
     }
 
     @media (max-width: 768px) {
-        .gallery-item {}
-
         .dog_row {
             justify-content: center;
             width: auto;
             height: auto;
-
         }
-
     }
 }
 </style>

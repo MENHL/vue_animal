@@ -18,7 +18,7 @@
 				<div class="cat_show">
 					<!-- 图片 -->
 					<div class="cat">
-						<img class="catimg" src="../assets/images/cat.jpg" alt="猫咪" loading="lazy">
+						<img class="catimg" :src="catimg.src" :alt="catimg.alt">
 					</div>
 					<!-- 标题 -->
 					<div class="cat_text">
@@ -34,15 +34,23 @@
 			<div class="h_dog ">
 				<DogIntroduce />
 			</div>
-			<div class="carousel">4</div>
-			<div class="footer">5</div>
+			<div class="carousel">
+				<Carousel />
+			</div>
+			<div class="footers">
+			</div>
 		</div>
 	</div>
 </template>
 <script setup>
-import DogIntroduce from './home_components/DogIntroduce.vue';
+import Carousel from './home/Carousel.vue';
+import DogIntroduce from './home/DogIntroduce.vue';
+import { ref } from 'vue';
 
-
+const catimg = ref({
+	src: new URL('../assets/images/c_cat.jpg', import.meta.url).href,
+	alt: "狮子猫"
+})
 </script>
 <style lang="scss" scoped>
 #homeView {
@@ -52,7 +60,7 @@ import DogIntroduce from './home_components/DogIntroduce.vue';
 		.h_shiba {
 			width: 100vw;
 			height: calc(100vh - 64px);
-			background-image: url(../assets/images/home_bg.jpg);
+			background-image: url(../assets/images/bg_dog.jpg);
 			// 	/* 确保图片覆盖容器，保持比例 */
 			background-size: cover;
 			/* 图片居中显示 */
@@ -96,7 +104,6 @@ import DogIntroduce from './home_components/DogIntroduce.vue';
 						height: 100%;
 						object-fit: cover;
 						display: block;
-						vertical-align: middle;
 					}
 				}
 
@@ -158,17 +165,16 @@ import DogIntroduce from './home_components/DogIntroduce.vue';
 
 		// 三级展示区
 		.h_dog {
-			background-color: $dog-background-color;
+			background-color: var(--gl-color);
 		}
 
 		// 四级展示区
 		.carousel {
-			height: 300px;
-			background-color: brown;
+			height: 450px;
 		}
 
 		// 五级展示区
-		.footer {
+		.footers {
 			height: 400px;
 			background-color: olivedrab;
 		}
