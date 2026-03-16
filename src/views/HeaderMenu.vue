@@ -48,11 +48,12 @@ const handleResize = () => {
       }
    }, 100);
 };
-
+// 点击抽屉打开
 const showDrawer = () => {
    open.value = true;
 
 };
+// 点击抽屉关闭
 const onClose = () => {
    open.value = false;
 };

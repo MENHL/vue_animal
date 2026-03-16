@@ -1,5 +1,4 @@
 <template>
-
     <swiper :modules="modules" :loop="true" :speed="800" :breakpoints="breakpoints" :space-between="50" :autoplay="{
         delay: 3000,
         pauseOnMouseEnter: true,
@@ -65,7 +64,7 @@ import 'swiper/css/navigation';
 // 4. 定义modules数组
 const modules = [Navigation, A11y, Autoplay];
 
-// 移动端显示
+// 不同屏幕下的显示
 const breakpoints = {
     //手机： ≥300px显示一个，间隔0
     300: {

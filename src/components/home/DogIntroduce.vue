@@ -1,10 +1,9 @@
 <template>
     <div class="dog_introduce banner">
-        <h1 class="dog_title">animal & photograph</h1>
+        <h1 class="dog_title">{{ phto.title }}</h1>
         <div class="dog_row">
             <a-image-preview-group>
-                <a-image v-for="(imgs, index) in images" :key="index" :src="imgs.src" :alt="imgs.alt" :height="240"
-                    class="gallery-item " />
+                <a-image v-for="(imgs, index) in phtoimg" :key="index" :src="imgs.src" :alt="imgs.alt" :height="240" />
             </a-image-preview-group>
         </div>
     </div>
@@ -12,7 +11,10 @@
 <script setup>
 
 // 定义图片数组
-const images = [
+const phto = {
+    title: "animal & photograph",
+};
+const phtoimg = [
     {
         src: new URL('../../assets/images/c_cat2.jpg', import.meta.url).href,
         alt: 'c_cat2',
@@ -62,6 +64,7 @@ const images = [
     padding-bottom: 6%;
 
     .dog_title {
+
         display: flex;
         flex-direction: column;
         align-items: center;

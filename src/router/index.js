@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// 图标可以在路由层引入，也可以在菜单层引入。这里为了数据完整，先引入。
+// 图标可以在路由层引入，也可以在菜单层引入。
+// 这里为了数据完整，先引入。
 import { CrownOutlined, PictureOutlined, SmileOutlined, SendOutlined } from '@ant-design/icons-vue';
 
 const router = createRouter({
@@ -23,7 +24,7 @@ const router = createRouter({
     {
       path: '/journalism',
       name: 'journalism',
-      component: () => import('@/components/Dog_photo.vue'),
+      component: () => import('@/components/DogPhoto.vue'),
       meta: {
         title: 'Dog',
         icon: PictureOutlined,
@@ -33,7 +34,7 @@ const router = createRouter({
     {
       path: '/contact',
       name: 'contact',
-      component: () => import('@/components/Cat_photo.vue'),
+      component: () => import('@/components/WeareFamily.vue'),
       meta: {
         title: 'Family',
         icon: SmileOutlined,

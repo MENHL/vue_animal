@@ -5,6 +5,7 @@ import * as Icons from '@ant-design/icons-vue'// 引入icon图标样式
 // 添加animate动画
 import 'animate.css';
 // 懒加载插件
+import VueLazyLoad from 'vue3-lazyload'
 
 import { createApp } from 'vue'
 // 引入pinia
@@ -14,13 +15,23 @@ import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
-const pinia = createPinia() // 创建 pinia 实例
+// 创建 pinia 实例
+const pinia = createPinia()
+
 app.use(pinia)
 app.use(router)
-app.use(Antd) // 全局注册 Ant Design Vue 组件
+// 全局注册 Ant Design Vue 组件
+app.use(Antd)
 
 // 注册全局懒加载插件
+app.use(VueLazyLoad, {
+    // loading 占位图
 
+    // 加载失败占位图
+    error: './assets/imgerroe.png',
+    // 加载失败后重试
+    attempt: 3
+})
 
 app.mount('#app')
 
