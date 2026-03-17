@@ -64,11 +64,12 @@ const phtoimg = [
     padding-bottom: 6%;
 
     .dog_title {
-
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        font-size: clamp(14px, 6vw, 28px);
+        line-height: 1.2;
         min-height: 75px;
         text-transform: uppercase;
     }
@@ -89,6 +90,8 @@ const phtoimg = [
     }
 
     @media (max-width: 768px) {
+        .dog_title {}
+
         .dog_row {
             justify-content: center;
             width: auto;

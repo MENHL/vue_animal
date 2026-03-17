@@ -98,7 +98,9 @@ onMounted(() => {
     }
 
     .cat_text {
+        min-width: 0;
         display: flex;
+        flex: 1;
         flex-direction: column;
         border-radius: 16px;
     }
@@ -122,11 +124,9 @@ onMounted(() => {
 
     // 猫咪段落介绍
     .cat_introduce {
-        border-radius: 16px;
-        // 首行缩进2格
         padding: 10px;
         text-indent: 2em;
-        font-size: clamp(18px, 1vw, 20px);
+        font-size: clamp(14px, 2.8vw, 18px);
         line-height: 1.8;
         overflow: hidden;
     }
@@ -140,12 +140,12 @@ onMounted(() => {
         .cat,
         .cat_text {
             width: 100%;
-            max-height: 380px;
             padding: 2% 0;
         }
 
         .cat_text {
             align-items: center;
+            min-width: auto;
         }
 
         .cat_title {
@@ -154,14 +154,28 @@ onMounted(() => {
             height: 15%;
         }
 
-
         // 猫咪段落介绍
         .cat_introduce {
+
             text-indent: 2em;
-            font-size: clamp(15px, 1vw, 25px);
+            font-size: clamp(16px, 3.2vw, 18px);
             line-height: 1.6;
             overflow: hidden;
         }
+    }
+}
+
+@media (max-width: 239px) {
+    .cat_introduce {
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-indent: 0;
+        padding: 8px;
+        font-size: clamp(12px, 3.5vw, 16px);
+        max-height: 120px;
     }
 }
 </style>
