@@ -53,3 +53,11 @@ body {
   border-bottom-color: var(--gl-color) !important;
   background-color: var(--gl-color) !important;
 }
+
+
+/* footers */
+
+ul,
+li {
+  list-style: none;
+}

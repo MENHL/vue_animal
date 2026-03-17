@@ -15,7 +15,10 @@
 			</div>
 			<!-- 猫咪 -->
 			<div class="h_cat">
-				<CatShows />
+				<div class="catfilter">
+					<CatShows />
+				</div>
+
 			</div>
 			<div class="h_dog ">
 				<DogIntroduce />
@@ -73,16 +76,25 @@ const introduce = {
 			}
 		}
 
-		// 
+		// 二级展示区
 		.h_cat {
-			background-color: $cat-color;
-			display: flex;
-			justify-content: center;
-		}
+			background-image: url(../assets/images/c_cat.jpg);
+			// 	/* 确保图片覆盖容器，保持比例 */
+			background-size: cover;
+			/* 图片居中显示 */
+			background-position: center center;
+			background-repeat: no-repeat;
 
-		// 三级展示区
-		.h_dog {
-			background-color: var(--gl-color);
+			//  添加模糊背景
+			.catfilter {
+				backdrop-filter: blur(15px);
+				-webkit-backdrop-filter: blur(10px);
+				/* Safari兼容 */
+
+				display: flex;
+				justify-content: center;
+			}
+
 		}
 
 		// 四级展示区
@@ -92,8 +104,8 @@ const introduce = {
 
 		// 五级展示区
 		.footers {
-			height: 400px;
-			background-color: olivedrab;
+			height: 280px;
+			background-color: $hom-background-color;
 		}
 
 		/* 移动端样式 */

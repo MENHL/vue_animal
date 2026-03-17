@@ -26,7 +26,7 @@ import { ref, onMounted } from 'vue';
 const catimg = ref({
     src: new URL('../../assets/images/c_cat.jpg', import.meta.url).href,
     title: "狮子猫",
-    content: "中国狮子猫，被誉为中华田园猫中的贵族，是波斯猫与中华田园鲁西狸猫的混血结晶，拥有独特的外貌与深厚的历史底蕴。它属于食肉目猫科猫属哺乳动物，通体雪白，毛发蓬松浓密，颈部修长的毛发形似狮子鬃毛，姿态优雅。其眼睛明亮有神，多为蓝色或黄色，部分个体更是拥有独一无二的鸳鸯眼。狮子猫性格聪明独立，对新鲜事物充满好奇，同时对主人极为依恋，乐于互动且情感丰富。它们适应力强，但胆子相对较小，需避免过度刺激。作为长毛猫,需每日梳理毛发以防打结，并注意防暑降温。科学饲养下，其寿命通常可达12- 15年.是家庭中的理想伴侣。",
+    content: "中国狮子猫被誉为中华田园猫中的“贵族”,是波斯猫与山东鲁西狸猫自然杂交的后代.它通体雪白,毛发浓密蓬松,颈部鬃毛形似雄狮,姿态优雅.眼睛多为蓝色、黄色,部分个体拥有独特的鸳鸯眼.性格聪明、好奇又亲人,情感丰富,乐于互动,但胆子较小,需避免惊吓。作为长毛猫,需每日梳理以防打结,并注意夏季防暑.在科学饲养下,寿命可达12–15年,是非常适合作为家庭伴侣的猫咪.",
 })
 
 // 1. 定义控制动画显示的响应式变量
@@ -71,7 +71,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .cat_show {
     padding: 0 10px;
-    margin: 40px 0 40px 0;
+    margin: 50px 0;
     display: flex;
     flex-wrap: nowrap;
 
@@ -80,7 +80,7 @@ onMounted(() => {
     .cat_text {
         opacity: 0;
         width: 50%;
-        height: 500px;
+        height: 600px;
         object-fit: cover;
         padding: 0 1%;
     }
@@ -98,20 +98,25 @@ onMounted(() => {
     }
 
     .cat_text {
-        position: relative;
+        display: flex;
+        flex-direction: column;
         border-radius: 16px;
-        box-shadow: 0 10px 20px #00000080, 0 -1px #ffffff80;
     }
 
     // 猫咪标题
     .cat_title {
-        margin-top: 10px;
-        text-align: center;
-        font-size: 24px;
+        width: 20%;
+        height: 15%;
+        font-size: 20px;
+        margin-top: 15%;
         border-radius: 16px;
 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         &.title-orange {
-            background-color: $cat-background--color;
+            background-color: $cat-background-color;
         }
     }
 
@@ -121,7 +126,7 @@ onMounted(() => {
         // 首行缩进2格
         padding: 10px;
         text-indent: 2em;
-        font-size: clamp(16px, 2vw, 22px);
+        font-size: clamp(18px, 1vw, 20px);
         line-height: 1.8;
         overflow: hidden;
     }
@@ -139,14 +144,21 @@ onMounted(() => {
             padding: 2% 0;
         }
 
-        .cat_introduce {
-            font-size: 18px;
+        .cat_text {
+            align-items: center;
         }
+
+        .cat_title {
+            margin-top: 5%;
+            width: 80%;
+            height: 15%;
+        }
+
 
         // 猫咪段落介绍
         .cat_introduce {
             text-indent: 2em;
-            font-size: clamp(16px, 1.5vw, 25px);
+            font-size: clamp(15px, 1vw, 25px);
             line-height: 1.6;
             overflow: hidden;
         }
