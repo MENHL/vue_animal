@@ -1,6 +1,6 @@
 <template>
-    <div id="journalism">
-        <h1>相册</h1>
+    <div id="dogPhoto">
+      
     </div>
 </template>
 
@@ -8,4 +8,11 @@
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#dogPhoto{
+
+
+
+
+}
+</style>
