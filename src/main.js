@@ -6,6 +6,8 @@ import * as Icons from '@ant-design/icons-vue'// 引入icon图标样式
 import 'animate.css';
 // 懒加载插件
 import VueLazyLoad from 'vue3-lazyload'
+// 引入瀑布流插件
+
 
 import { createApp } from 'vue'
 // 引入pinia
@@ -25,12 +27,10 @@ app.use(Antd)
 
 // 注册全局懒加载插件
 app.use(VueLazyLoad, {
-    // loading 占位图
-
-    // 加载失败占位图
-    error: './assets/imgerroe.png',
-    // 加载失败后重试
-    attempt: 3
+    preLoad: 1.3, // 提前加载高度（1.3 倍视口高）
+    loading: './assets/loading.gif',   // loading 占位图
+    error: './assets/imgerror.png',  // 加载失败占位图
+    attempt: 1  // 加载失败后重试
 })
 
 app.mount('#app')

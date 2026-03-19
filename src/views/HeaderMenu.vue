@@ -28,7 +28,7 @@
 
 <script setup>
 
-import HeaderMove from '@/components/HeaderMove.vue';
+import HeaderMove from '@/components/HeaderMenu.vue';
 import { h, ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 

@@ -1,10 +1,18 @@
 <template>
     <div id="contact">
-        <h1>联系我们</h1>
+        <div>
+            <!-- <img v-lazy="" alt=""> -->
+        </div>
     </div>
 </template>
 
 <script setup>
+import { famil } from "../family/familys.js"
+
+
+
+console.log(famil);
+
 
 </script>
 

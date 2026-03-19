@@ -8,12 +8,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home',
-    },
-    {
-      path: '/home',
-      name: 'home',
-      // 默认重定向
+      // redirect: '/home',
       component: () => import('@/components/HomeView.vue'),
       meta: {
         title: '首页',
@@ -26,7 +21,7 @@ const router = createRouter({
       name: 'journalism',
       component: () => import('@/components/DogPhoto.vue'),
       meta: {
-        title: 'Dog',
+        title: 'Dogs',
         icon: PictureOutlined,
         showInMenu: true,
       }
