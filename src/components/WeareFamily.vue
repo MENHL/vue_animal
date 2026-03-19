@@ -11,9 +11,9 @@ import { famil } from "../family/familys.js"
 
 
 
-console.log(famil);
-
-
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+
+</style>

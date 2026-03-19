@@ -12,19 +12,24 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from "vue";
-// 确保路径指向你的真实数据文件
 import { dogs } from "../family/familys";
 
 const containerRef = ref(null);
 const containerOverallHeight = ref(0); // 包含 padding 的总高度
-const colWidth = ref(0);
+const colWidth = ref(0);      // 宽度
 const positionedDogs = ref([]);
 
-// 响应式：移动端 2 列，PC 端 4 列
+// 响应式配置：移动端 2 列，平板 3 列，PC 端 4 列
 const getColumnCount = () => {
-    return window.innerWidth < 768 ? 2 : 4;
+    const width = window.innerWidth;
+    if (width < 768) {
+        return 2; // 手机
+    } else if (width >= 768 && width < 1200) {
+        return 3; // 平板或小屏笔记本
+    } else {
+        return 4; // 大屏 PC
+    }
 };
-
 const calculateLayout = () => {
     if (!containerRef.value) return;
 
