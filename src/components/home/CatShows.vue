@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, toRefs, onMounted } from 'vue';
 
 
 // 图片标题
