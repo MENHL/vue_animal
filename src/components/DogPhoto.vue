@@ -98,9 +98,6 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-
-=======
 #dogPhoto {
     position: relative;
     width: 100%;
@@ -156,5 +153,4 @@ onUnmounted(() => {
         transform: translateY(0);
     }
 }
->>>>>>> develop
 </style>

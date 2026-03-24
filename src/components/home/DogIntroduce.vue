@@ -71,21 +71,11 @@ const phtoimg = [
     padding-bottom: 6%;
     border-radius: 15px;
 
-<<<<<<< HEAD
-    .dog_title {
-=======
-    .dog_title_wrapper {
->>>>>>> develop
-        display: flex;
-        align-items: center;
-<<<<<<< HEAD
-        justify-content: center;
 
-        font-size: clamp(14px, 6vw, 28px);
-        line-height: 1.2;
-        min-height: 75px;
-        text-transform: uppercase;
-=======
+    .dog_title_wrapper {
+        display: flex;
+        flex-direction: column; // 让标题和装饰条上下排列
+        align-items: center;
         margin-bottom: 50px; // 与下方图片的间距
 
         .dog_title {
@@ -93,12 +83,12 @@ const phtoimg = [
             font-weight: 800;
             color: #2c3e50;
             text-transform: uppercase;
-            letter-spacing: 6px; // 关键：拉大字间距更有画廊感
+            letter-spacing: 6px; //拉大字间距更有画廊感
             margin: 0;
             line-height: 1.2;
             text-align: center;
 
-            // 渐变色文字（可选，很有质感）
+            // 渐变色文字
             background: linear-gradient(to bottom, #2c3e50, #bdc3c7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -107,57 +97,57 @@ const phtoimg = [
             @media (max-width: 768px) {
                 font-size: 28px;
                 letter-spacing: 3px;
+
+            }
+
+            .title_decoration {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-top: 10px;
+
+                .line {
+                    width: 40px;
+                    height: 2px;
+                    background-color: #3498db;
+                    border-radius: 2px;
+                }
+
+                .dot {
+                    width: 6px;
+                    height: 6px;
+                    background-color: #3498db;
+                    transform: rotate(45deg); // 菱形小点
+                }
             }
         }
-
-        .title_decoration {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 10px;
-
-            .line {
-                width: 40px;
-                height: 2px;
-                background-color: #3498db; 
-                border-radius: 2px;
-            }
-
-            .dot {
-                width: 6px;
-                height: 6px;
-                background-color: #3498db;
-                transform: rotate(45deg); // 菱形小点
-            }
-        }
->>>>>>> develop
     }
+}
 
 
+
+.dog_row {
+    max-width: 1200px;
+    max-height: 550px; 
+    margin: 0 auto;
+    background-color: $font-color;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    // 允许滚动
+    overflow: auto;
+}
+
+@media (max-width: 768px) {
+    .dog_title {}
 
     .dog_row {
-        max-width: 1200px;
-        max-height: 550px; // 容器高度（可选）
-        margin: 0 auto;
-        background-color: $font-color;
-
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 16px;
-        padding: 16px;
-        // 允许滚动
-        overflow: auto;
-    }
-
-    @media (max-width: 768px) {
-        .dog_title {}
-
-        .dog_row {
-            justify-content: center;
-            width: auto;
-            height: auto;
-        }
+        width: auto;
+        height: auto;
     }
 }
 </style>

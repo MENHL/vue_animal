@@ -1,8 +1,5 @@
 
-
-# 🐾 My Animal World - Vue 3 前端项目
-
-> 一个基于 Vue 3 + Vite 构建的宠物主题网站，展示猫咪、狗狗等动物信息，提供优雅的用户体验与响应式布局。
+一个基于 Vue 3 + Vite 的宠物主题前端应用，展示猫狗等动物信息、图片画廊与家庭故事，适配移动端，集成 Ant Design Vue 提升 UI 一致性。
 
 ![项目截图](https://via.placeholder.com/800x400?text=Animal+World+Website)  
 *（请替换为实际项目截图）*
@@ -86,9 +83,11 @@ my-animalworld-vue/
 ## 🧪 快速开始
 
 ### 1. 克隆项目
-
-```bash
+```gitee
+https://gitee.com/rainbow-under-the-sunshine/vue_animal.git
+```githup
 git clone https://github.com/yourname/my-animalworld-vue.git
+
 cd my-animalworld-vue
 ```
 
