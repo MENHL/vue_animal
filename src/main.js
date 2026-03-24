@@ -9,17 +9,13 @@ import VueLazyLoad from 'vue3-lazyload'
 
 
 import { createApp } from 'vue'
-// 引入pinia
-import { createPinia } from 'pinia'
+
 
 import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
-// 创建 pinia 实例
-const pinia = createPinia()
 
-app.use(pinia)
 app.use(router)
 // 全局注册 Ant Design Vue 组件
 app.use(Antd)

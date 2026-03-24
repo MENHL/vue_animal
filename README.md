@@ -1,8 +1,29 @@
-
 一个基于 Vue 3 + Vite 的宠物主题前端应用，展示猫狗等动物信息、图片画廊与家庭故事，适配移动端，集成 Ant Design Vue 提升 UI 一致性。
 
-![项目截图](https://via.placeholder.com/800x400?text=Animal+World+Website)  
-*（请替换为实际项目截图）*
+# 项目截图：
+
+## 主页
+
+<img src="https://gitee.com/rainbow-under-the-sunshine/vue_animal/raw/master/Project/images/home1.png" alt="主页" style="zoom:33%;" />
+
+<img src="https://gitee.com/rainbow-under-the-sunshine/vue_animal/raw/master/Project/images/home2.png" style="zoom:33%;" >
+
+<img src="https://gitee.com/rainbow-under-the-sunshine/vue_animal/raw/master/Project/images/home3.png" style="zoom:33%;" >
+
+## 瀑布流
+
+<img src="https://gitee.com/rainbow-under-the-sunshine/vue_animal/raw/master/Project/images/DogPhoto1.png">
+
+<img src="https://gitee.com/rainbow-under-the-sunshine/vue_animal/raw/master/Project/images/DogPhoto2.png" style="zoom: 50%;" >
+
+## 关于
+
+<img src="https://gitee.com/rainbow-under-the-sunshine/vue_animal/raw/master/Project/images/aubot1.png" style="zoom:33%;" >
+
+## 移动端
+
+<img src="https://gitee.com/rainbow-under-the-sunshine/vue_animal/raw/master/Project/images/001.png" style="zoom:33%;" >
+
 
 ---
 
