@@ -152,16 +152,10 @@ const tomenu = ({ key }) => {
    // 菜单栏
    .header-col {
       display: flex;
-      align-items: center;
-
-      position: relative;
-      padding-right: 60px;
-
       .header-menu {
-         background-color: $background-color;
+         background-color: $font-color;
          // 去除默认底部边框
          border-bottom: none;
-         display: block;
          flex: 1;
       }
 

@@ -21,7 +21,7 @@ import HeaderMenu from '@/views/HeaderMenu.vue';
 
 <style lang="scss" scoped>
 .header {
-    background-color: $background-color;
+    background-color: $font-color;
     color: unset;
     padding: 0px 0.5vw;
 }

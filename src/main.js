@@ -2,8 +2,7 @@ import './styles/base.css' // 引入全局样式
 import Antd from 'ant-design-vue' // 引入全部组件
 import 'ant-design-vue/dist/reset.css' // 引入样式
 import * as Icons from '@ant-design/icons-vue'// 引入icon图标样式
-// 添加animate动画
-import 'animate.css';
+
 // 懒加载插件
 import VueLazyLoad from 'vue3-lazyload'
 // 引入瀑布流插件
