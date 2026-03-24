@@ -79,7 +79,6 @@ const { titleone, titletwo } = {
 			padding: 100px 0;
 		}
 
-		.h_dog {}
 
 		.carousel {
 			height: 450px;
