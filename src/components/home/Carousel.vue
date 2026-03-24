@@ -7,7 +7,6 @@
         <swiper-slide v-for="photo in phtowall" :key="photo.id">
             <img class="carousel" :src="photo.src" :alt="photo.alt" />
         </swiper-slide>
-
     </swiper>
 </template>
 
@@ -97,7 +96,6 @@ const breakpoints = {
     width: 100%;
     height: 100%;
     padding: 20px;
-
 }
 
 .swiper-slide {

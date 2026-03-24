@@ -1,0 +1,267 @@
+// Dog模块照片墙
+export const dogs = [
+    {
+        id: 1,
+        src: new URL('../assets/images/d_alexas.jpg', import.meta.url).href,
+        width: 5900, height: 3905,
+        alt: "d_alexas"
+    },
+    {
+        id: 2,
+        src: new URL('../assets/images/d_anjagh.jpg', import.meta.url).href,
+        width: 4568, height: 3508,
+        alt: "d_anjagh"
+    }, {
+        id: 3,
+        src: new URL('../assets/images/d_brixiv.jpg', import.meta.url).href,
+        width: 3514, height: 5271,
+        alt: "d_brixiv"
+    },
+    {
+        id: 4,
+        src: new URL('../assets/images/d_bull.jpg', import.meta.url).href,
+        width: 3571, height: 5000,
+        alt: "d_bull"
+    },
+    {
+        id: 5,
+        src: new URL('../assets/images/d_dalmatian.jpg', import.meta.url).href,
+        width: 1920, height: 1278,
+        alt: "d_dalmatian"
+    },
+    {
+        id: 6,
+        src: new URL('../assets/images/d_danielajakob.jpg', import.meta.url).href,
+        width: 3069, height: 4603,
+        alt: "d_danielajakob"
+    },
+    {
+        id: 7,
+        src: new URL('../assets/images/d_factory.jpg', import.meta.url).href,
+        width: 1920, height: 1282,
+        alt: "d_factory"
+    },
+    {
+        id: 8,
+        src: new URL('../assets/images/d_german.jpg', import.meta.url).href,
+        width: 2008, height: 2000,
+        alt: "d_german"
+    },
+    {
+        id: 9,
+        src: new URL('../assets/images/d_greyhound.jpg', import.meta.url).href,
+        width: 2592, height: 3888,
+        alt: "d_greyhound"
+    },
+    {
+        id: 10,
+        src: new URL('../assets/images/d_huoadg.jpg', import.meta.url).href,
+        width: 1282, height: 1920,
+        alt: "d_huoadg"
+    },
+    {
+        id: 11,
+        src: new URL('../assets/images/d_husky.jpg', import.meta.url).href,
+        width: 1280, height: 1920,
+        alt: "d_husky"
+    },
+    {
+        id: 12,
+        src: new URL('../assets/images/d_jack.jpg', import.meta.url).href,
+        width: 3840, height: 5760,
+        alt: "d_jack"
+    },
+    {
+        id: 13,
+        src: new URL('../assets/images/d_jhelmuth.jpg', import.meta.url).href,
+        width: 6000, height: 4000,
+        alt: "d_jhelmuth"
+    }, {
+        id: 14,
+        src: new URL('../assets/images/d_lichtpuenktchen.jpg', import.meta.url).href,
+        width: 1372, height: 1920,
+        alt: "d_lichtpuenktchen"
+    }, {
+        id: 15,
+        src: new URL('../assets/images/d_nipic.jpg', import.meta.url).href,
+        width: 1024, height: 640,
+        alt: "d_nipic"
+    }, {
+        id: 16,
+        src: new URL('../assets/images/d_nisakorn.jpg', import.meta.url).href,
+        width: 3456, height: 5148,
+        alt: "d_nisakorn"
+    }, {
+        id: 17,
+        src: new URL('../assets/images/d_phillies.jpg', import.meta.url).href,
+        width: 1920, height: 1536,
+        alt: "d_phillies"
+    }, {
+        id: 18,
+        src: new URL('../assets/images/d_picnic.jpg', import.meta.url).href,
+        width: 5184, height: 3456,
+        alt: "d_picnic"
+    }, {
+        id: 19,
+        src: new URL('../assets/images/d_pug.jpg', import.meta.url).href,
+        width: 4956, height: 2868,
+        alt: "d_pug"
+    }, {
+        id: 20,
+        src: new URL('../assets/images/d_rc.jpg', import.meta.url).href,
+        width: 5184, height: 3456,
+        alt: "d_rc"
+    }, {
+        id: 21,
+        src: new URL('../assets/images/d_ridgeback.jpg', import.meta.url).href,
+        width: 1920, height: 1280,
+        alt: "d_ridgeback"
+    }, {
+        id: 22,
+        src: new URL('../assets/images/d_rodrigues.jpg', import.meta.url).href,
+        width: 5184, height: 3456,
+        alt: "d_rodrigues"
+    }, {
+        id: 23,
+        src: new URL('../assets/images/d_siberian.jpg', import.meta.url).href,
+        width: 1920, height: 1280,
+        alt: "d_siberian"
+    }, {
+        id: 24,
+        src: new URL('../assets/images/d_vlaaitje.jpg', import.meta.url).href,
+        width: 3400, height: 2266,
+        alt: "d_vlaaitje"
+    }, {
+        id: 25,
+        src: new URL('../assets/images/d_alexas.jpg', import.meta.url).href,
+        width: 5900, height: 3905,
+        alt: "d_alexas"
+    },
+    {
+        id: 26,
+        src: new URL('../assets/images/d_anjagh.jpg', import.meta.url).href,
+        width: 4568, height: 3508,
+        alt: "d_anjagh"
+    }, {
+        id: 27,
+        src: new URL('../assets/images/d_brixiv.jpg', import.meta.url).href,
+        width: 3514, height: 5271,
+        alt: "d_brixiv"
+    },
+    {
+        id: 28,
+        src: new URL('../assets/images/d_bull.jpg', import.meta.url).href,
+        width: 3571, height: 5000,
+        alt: "d_bull"
+    },
+    {
+        id: 29,
+        src: new URL('../assets/images/d_dalmatian.jpg', import.meta.url).href,
+        width: 1920, height: 1278,
+        alt: "d_dalmatian"
+    },
+    {
+        id: 30,
+        src: new URL('../assets/images/d_danielajakob.jpg', import.meta.url).href,
+        width: 3069, height: 4603,
+        alt: "d_danielajakob"
+    },
+    {
+        id: 31,
+        src: new URL('../assets/images/d_factory.jpg', import.meta.url).href,
+        width: 1920, height: 1282,
+        alt: "d_factory"
+    },
+    {
+        id: 32,
+        src: new URL('../assets/images/d_german.jpg', import.meta.url).href,
+        width: 2008, height: 2000,
+        alt: "d_german"
+    },
+    {
+        id: 33,
+        src: new URL('../assets/images/d_greyhound.jpg', import.meta.url).href,
+        width: 2592, height: 3888,
+        alt: "d_greyhound"
+    },
+    {
+        id: 34,
+        src: new URL('../assets/images/d_huoadg.jpg', import.meta.url).href,
+        width: 1282, height: 1920,
+        alt: "d_huoadg"
+    },
+    {
+        id: 35,
+        src: new URL('../assets/images/d_husky.jpg', import.meta.url).href,
+        width: 1280, height: 1920,
+        alt: "d_husky"
+    },
+    {
+        id: 36,
+        src: new URL('../assets/images/d_jack.jpg', import.meta.url).href,
+        width: 3840, height: 5760,
+        alt: "d_jack"
+    },
+    {
+        id: 37,
+        src: new URL('../assets/images/d_jhelmuth.jpg', import.meta.url).href,
+        width: 6000, height: 4000,
+        alt: "d_jhelmuth"
+    }, {
+        id: 38,
+        src: new URL('../assets/images/d_lichtpuenktchen.jpg', import.meta.url).href,
+        width: 1372, height: 1920,
+        alt: "d_lichtpuenktchen"
+    }, {
+        id: 39,
+        src: new URL('../assets/images/d_nipic.jpg', import.meta.url).href,
+        width: 1024, height: 640,
+        alt: "d_nipic"
+    }, {
+        id: 40,
+        src: new URL('../assets/images/d_nisakorn.jpg', import.meta.url).href,
+        width: 3456, height: 5148,
+        alt: "d_nisakorn"
+    }, {
+        id: 41,
+        src: new URL('../assets/images/d_phillies.jpg', import.meta.url).href,
+        width: 1920, height: 1536,
+        alt: "d_phillies"
+    }, {
+        id: 42,
+        src: new URL('../assets/images/d_picnic.jpg', import.meta.url).href,
+        width: 5184, height: 3456,
+        alt: "d_picnic"
+    }, {
+        id: 43,
+        src: new URL('../assets/images/d_pug.jpg', import.meta.url).href,
+        width: 4956, height: 2868,
+        alt: "d_pug"
+    }, {
+        id: 44,
+        src: new URL('../assets/images/d_rc.jpg', import.meta.url).href,
+        width: 5184, height: 3456,
+        alt: "d_rc"
+    }, {
+        id: 45,
+        src: new URL('../assets/images/d_ridgeback.jpg', import.meta.url).href,
+        width: 1920, height: 1280,
+        alt: "d_ridgeback"
+    }, {
+        id: 46,
+        src: new URL('../assets/images/d_rodrigues.jpg', import.meta.url).href,
+        width: 5184, height: 3456,
+        alt: "d_rodrigues"
+    }, {
+        id: 47,
+        src: new URL('../assets/images/d_siberian.jpg', import.meta.url).href,
+        width: 1920, height: 1280,
+        alt: "d_siberian"
+    }, {
+        id: 48,
+        src: new URL('../assets/images/d_vlaaitje.jpg', import.meta.url).href,
+        width: 3400, height: 2266,
+        alt: "d_vlaaitje"
+    },
+]
+
