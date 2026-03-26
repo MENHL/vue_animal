@@ -253,8 +253,10 @@ onMounted(() => {
                         transition: transform 0.3s ease;
                     }
 
+
+
                     &:hover {
-                        background-color: darken(skyblue, 10%);
+                        background-color: color.adjust(skyblue, $lightness: -10%);
                         transform: translateY(-2px);
                         box-shadow: 0 6px 20px rgba(135, 206, 235, 0.6);
 
