@@ -76,6 +76,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 .penguins {
     width: 100%;
     min-height: 80vh; //防止移动端内容溢出
