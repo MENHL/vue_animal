@@ -87,8 +87,6 @@ my-animalworld-vue/
 │  └─ BsLayout.vue               — 页面基础布局组件（头/尾/侧边等）
 ├─ router/                       — 路由配置目录
 │  └─ index.js                   — Vue-router 路由定义与导航守卫
-├─ stores/                       — 状态管理目录（如 Pinia/Vuex）
-│  └─ index.js                   — 全局状态仓库入口与导出
 ├─ styles/                       — 全局样式与变量
 │  ├─ base.css                   — 基础样式（reset / 公共类）
 │  └─ global.scss                — 全局 SCSS 变量、混入与主题样式
@@ -162,7 +160,6 @@ npm run build
 
 ## 🌐 社交链接
 
-- GitHub: [https://github.com/yourname/my-animalworld-vue](https://github.com/yourname/my-animalworld-vue)
 - Demo: [https://yourname.github.io/my-animalworld-vue](https://yourname.github.io/my-animalworld-vue)
 
 ---
@@ -183,14 +180,6 @@ npm run build
 
 本项目遵循 MIT 开源协议。  
 © 2025 毛孩子团队。保留所有权利。
-
----
-
-## 💬 联系我们
-
-如有问题或建议，请通过以下方式联系我们：
-
-- 邮箱：1971217559@qq.com
 
 ---
 

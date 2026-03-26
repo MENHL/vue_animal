@@ -28,34 +28,6 @@ body {
   margin: 0 auto;
 }
 
-/* HeaderMenu组件修改默认样式 */
-:where(.css-dev-only-do-not-override-1p3hq3p).ant-menu-light.ant-menu-horizontal>.ant-menu-item-selected,
-:where(.css-dev-only-do-not-override-1p3hq3p).ant-menu-light.ant-menu-horizontal>.ant-menu-submenu-selected {
-  color: black;
-  background-color: var(--gl-color);
-  /* background-color: transparent; */
-}
-
-/* 移动端抽屉内菜单的激活/悬停颜色 (如果适用) */
-:where(.css-dev-only-do-not-override-1p3hq3p).ant-menu-vertical .ant-menu-item-selected,
-.ant-menu-vertical .ant-menu-item:hover {
-  color: var(--gl-color);
-}
-
-/* 强力覆盖 - 激活菜单项底部的短线颜色 */
-.ant-menu-horizontal>.ant-menu-item-selected::after {
-  border-bottom-color: var(--gl-color) !important;
-  background-color: var(--gl-color) !important;
-}
-
-/* 强力覆盖 - 悬停时底部线条的颜色 (可选，让悬停时也有颜色反馈) */
-.ant-menu-horizontal>.ant-menu-item:hover::after {
-  border-bottom-color: var(--gl-color) !important;
-  background-color: var(--gl-color) !important;
-}
-
-
-/* footers */
 
 ul,
 li {
