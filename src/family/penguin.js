@@ -1,82 +1,92 @@
 export const penguins = [
-    {
-        id: 1,
-        name: "帝企鹅",
-        content: "帝企鹅是世界上最大的企鹅种类之一，它们主要生活在南极洲的冰层上。它们拥有极佳的抗寒能力，雄性企鹅会在严寒的极夜中负责孵化企鹅蛋。",
-        src: new URL('../assets/images/p_Emperor.jpg', import.meta.url).href,
-        alt: "p_Emperor",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 2,
-        name: "阿德利企鹅",
-        content: "阿德利企鹅是一种中等体型的企鹅，它们以鱼类和磷虾为食。它们性格活泼且富有好奇心，眼圈周围明显的白色圆环是它们最显著的标志。",
-        src: new URL('../assets/images/p_Adley.jpg', import.meta.url).href,
-        alt: "p_Adley",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 3,
-        name: "金图企鹅",
-        content: "金图企鹅以其独特的金色羽毛而闻名，它们主要分布在南美洲的海岸地区。它们也被称为巴布亚企鹅，是企鹅家族中游泳速度最快的运动健将。",
-        src: new URL('../assets/images/p_goldenmap.jpg', import.meta.url).href,
-        alt: "p_goldenmap",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 4,
-        name: "马可罗尼企鹅",
-        content: "马可罗尼企鹅是一种大型企鹅，它们以鱼类和鱿鱼为食。最引人注目的是它们头上长有橘黄色的长簇状羽毛，看起来就像戴了一顶华丽的头饰。",
-        src: new URL('../assets/images/p_macaroni.jpg', import.meta.url).href,
-        alt: "p_macaroni",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 5,
-        name: "巴布亚企鹅",
-        content: "巴布亚企鹅是南极洲常见的企鹅种类之一，它们以鱼类和磷虾为食。它们头顶有一条宽阔的白色条纹，性格相对温顺，是极地生态系统的重要成员。",
-        src: new URL('../assets/images/p_papua .jpg', import.meta.url).href,
-        alt: "p_papua",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 6,
-        name: "麦哲伦企鹅",
-        content: "麦哲伦企鹅是一种中等体型的企鹅，它们主要分布在南美洲的海岸地区。它们会在灌木丛下或洞穴中筑巢，胸前有两条黑色的环带，极具辨识度。",
-        src: new URL('../assets/images/p_magellanic.jpg', import.meta.url).href,
-        alt: "p_magellanic",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 7,
-        name: "加拉帕戈斯企鹅",
-        content: "加拉帕戈斯企鹅是生活在加拉帕戈斯群岛的特殊企鹅种类。它们是唯一生活在赤道附近的企鹅，通过寻找凉爽的海流来适应热带气候。",
-        src: new URL('../assets/images/p_galapagos.jpg', import.meta.url).href,
-        alt: "p_galapagos",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 8,
-        name: "洪堡企鹅",
-        content: "洪堡企鹅是一种中等体型的企鹅，它们主要分布在南美洲的海岸地区。由于过度捕捞和栖息地破坏，它们目前处于易危状态，需要人类的精心保护。",
-        src: new URL('../assets/images/p_humboldt.jpg', import.meta.url).href,
-        alt: "p_humboldt",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 9,
-        name: "南非企鹅",
-        content: "南非企鹅是生活在南非海岸的企鹅种类。它们又被称为‘驴企鹅’，因为它们发出的叫声非常像驴鸣，是当地著名的旅游景观。",
-        src: new URL('../assets/images/p_southafrican.jpg', import.meta.url).href,
-        alt: "p_southafrican",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-    {
-        id: 10,
-        name: "非洲斑嘴企鹅",
-        content: "非洲斑嘴企鹅是生活在非洲海岸的企鹅种类。它们身体表面散布着不规则的黑色斑点，这些斑点就像人类的指纹一样，每只企鹅都是独一无二的。",
-        src: new URL('../assets/images/p_African.jpg', import.meta.url).href,
-        alt: "p_African",
-        href: "https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video",
-    },
-];
+  {
+    id: 1,
+    name: '帝企鹅',
+    content:
+      '帝企鹅是世界上最大的企鹅种类之一，它们主要生活在南极洲的冰层上。它们拥有极佳的抗寒能力，雄性企鹅会在严寒的极夜中负责孵化企鹅蛋。',
+    src: new URL('../assets/images/p_Emperor.jpg', import.meta.url).href,
+    alt: 'p_Emperor',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 2,
+    name: '阿德利企鹅',
+    content:
+      '阿德利企鹅是一种中等体型的企鹅，它们以鱼类和磷虾为食。它们性格活泼且富有好奇心，眼圈周围明显的白色圆环是它们最显著的标志。',
+    src: new URL('../assets/images/p_Adley.jpg', import.meta.url).href,
+    alt: 'p_Adley',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 3,
+    name: '金图企鹅',
+    content:
+      '金图企鹅以其独特的金色羽毛而闻名，它们主要分布在南美洲的海岸地区。它们也被称为巴布亚企鹅，是企鹅家族中游泳速度最快的运动健将。',
+    src: new URL('../assets/images/p_goldenmap.jpg', import.meta.url).href,
+    alt: 'p_goldenmap',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 4,
+    name: '马可罗尼企鹅',
+    content:
+      '马可罗尼企鹅是一种大型企鹅，它们以鱼类和鱿鱼为食。最引人注目的是它们头上长有橘黄色的长簇状羽毛，看起来就像戴了一顶华丽的头饰。',
+    src: new URL('../assets/images/p_macaroni.jpg', import.meta.url).href,
+    alt: 'p_macaroni',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 5,
+    name: '巴布亚企鹅',
+    content:
+      '巴布亚企鹅是南极洲常见的企鹅种类之一，它们以鱼类和磷虾为食。它们头顶有一条宽阔的白色条纹，性格相对温顺，是极地生态系统的重要成员。',
+    src: new URL('../assets/images/p_papua .jpg', import.meta.url).href,
+    alt: 'p_papua',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 6,
+    name: '麦哲伦企鹅',
+    content:
+      '麦哲伦企鹅是一种中等体型的企鹅，它们主要分布在南美洲的海岸地区。它们会在灌木丛下或洞穴中筑巢，胸前有两条黑色的环带，极具辨识度。',
+    src: new URL('../assets/images/p_magellanic.jpg', import.meta.url).href,
+    alt: 'p_magellanic',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 7,
+    name: '加拉帕戈斯企鹅',
+    content:
+      '加拉帕戈斯企鹅是生活在加拉帕戈斯群岛的特殊企鹅种类。它们是唯一生活在赤道附近的企鹅，通过寻找凉爽的海流来适应热带气候。',
+    src: new URL('../assets/images/p_galapagos.jpg', import.meta.url).href,
+    alt: 'p_galapagos',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 8,
+    name: '洪堡企鹅',
+    content:
+      '洪堡企鹅是一种中等体型的企鹅，它们主要分布在南美洲的海岸地区。由于过度捕捞和栖息地破坏，它们目前处于易危状态，需要人类的精心保护。',
+    src: new URL('../assets/images/p_humboldt.jpg', import.meta.url).href,
+    alt: 'p_humboldt',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 9,
+    name: '南非企鹅',
+    content:
+      '南非企鹅是生活在南非海岸的企鹅种类。它们又被称为‘驴企鹅’，因为它们发出的叫声非常像驴鸣，是当地著名的旅游景观。',
+    src: new URL('../assets/images/p_southafrican.jpg', import.meta.url).href,
+    alt: 'p_southafrican',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+  {
+    id: 10,
+    name: '非洲斑嘴企鹅',
+    content:
+      '非洲斑嘴企鹅是生活在非洲海岸的企鹅种类。它们身体表面散布着不规则的黑色斑点，这些斑点就像人类的指纹一样，每只企鹅都是独一无二的。',
+    src: new URL('../assets/images/p_African.jpg', import.meta.url).href,
+    alt: 'p_African',
+    href: 'https://search.cctv.com/search.php?qtext=%E4%BC%81%E9%B9%85&type=video',
+  },
+]

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 // 图标可以在路由层引入，也可以在菜单层引入。
 // 这里为了数据完整，先引入。
-import { CrownOutlined, SmileOutlined, SendOutlined } from '@ant-design/icons-vue';
+import { CrownOutlined, SmileOutlined, SendOutlined } from '@ant-design/icons-vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -14,7 +14,7 @@ const router = createRouter({
         title: '首页',
         icon: CrownOutlined,
         showInMenu: true, // 标记是否显示在菜单
-      }
+      },
     },
     {
       path: '/journalism',
@@ -24,7 +24,7 @@ const router = createRouter({
         title: 'Dogs',
         icon: SmileOutlined,
         showInMenu: true,
-      }
+      },
     },
     {
       path: '/about',
@@ -34,7 +34,7 @@ const router = createRouter({
         title: '关于我们',
         icon: SendOutlined,
         showInMenu: true,
-      }
+      },
     },
   ],
 })
