@@ -55,35 +55,49 @@ const preloadImages = (imageUrls) => {
 const calculateLayout = () => {
     if (!containerRef.value) return;
 
+    // 1. 获取容器宽度 (clientWidth 不含滚动条，最准确)
+    const containerWidth = containerRef.value.clientWidth;
     const style = window.getComputedStyle(containerRef.value);
-    const paddingTop = parseFloat(style.paddingTop) || 0;
-    const paddingLeft = parseFloat(style.paddingLeft) || 0;
-    const paddingRight = parseFloat(style.paddingRight) || 0;
-    const paddingBottom = parseFloat(style.paddingBottom) || 0;
+
+    // 获取左右 padding
+    const pLeft = parseFloat(style.paddingLeft) || 0;
+    const pRight = parseFloat(style.paddingRight) || 0;
+    const pTop = parseFloat(style.paddingTop) || 0;
+    const pBottom = parseFloat(style.paddingBottom) || 0;
 
     const columnCount = getColumnCount();
     const gap = 12;
-    const totalContentWidth = containerRef.value.offsetWidth - paddingLeft - paddingRight;
-    colWidth.value = (totalContentWidth - (columnCount - 1) * gap) / columnCount;
+
+    // 2. 计算单列宽度：基于容器内部纯宽度
+    const availableWidth = containerWidth - pLeft - pRight;
+    colWidth.value = (availableWidth - (columnCount - 1) * gap) / columnCount;
+
+    // 3. 【核心修复】计算图片阵列实际占用的总宽度
+    // 防止因为像素取整导致的几像素偏差
+    const actualContentWidth = (columnCount * colWidth.value) + ((columnCount - 1) * gap);
+
+    // 4. 【核心修复】计算动态起始偏移量
+    // 这将确保无论 padding 是多少，图片群都会在容器里绝对居中
+    const startLeft = (containerWidth - actualContentWidth) / 2;
 
     const columnHeights = new Array(columnCount).fill(0);
 
-    // 根据当前的 displayLimit 实时生成带坐标的数组
     positionedDogs.value = dogs.slice(0, displayLimit.value).map((dog) => {
         const minHeight = Math.min(...columnHeights);
         const columnIndex = columnHeights.indexOf(minHeight);
 
-        const left = columnIndex * (colWidth.value + gap) + paddingLeft;
-        const top = minHeight + paddingTop;
-        const displayHeight = (dog.height / dog.width) * colWidth.value;
+        // 使用计算出的 startLeft 作为起始点
+        const left = startLeft + columnIndex * (colWidth.value + gap);
+        const top = minHeight + pTop;
 
+        const displayHeight = (dog.height / dog.width) * colWidth.value;
         columnHeights[columnIndex] += displayHeight + gap;
 
         return { ...dog, displayHeight, top, left };
     });
 
     const maxColumnHeight = Math.max(...columnHeights);
-    containerOverallHeight.value = maxColumnHeight + paddingTop + paddingBottom + 80;
+    containerOverallHeight.value = maxColumnHeight + pTop + pBottom + 80;
 };
 
 // 3. 触底加载流程控制 
@@ -143,19 +157,22 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-/* 样式保持你原来的美化版本，无需大改 */
 #dogPhoto {
     position: relative;
     width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
     padding: 20px 15px;
     box-sizing: border-box;
-    margin: 0 auto;
     background-color: #fff;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .waterfall-item {
     position: absolute;
+    left: 0;
+    top: 0;
     background-color: #f7f7f7;
     border-radius: 12px;
     overflow: hidden;
