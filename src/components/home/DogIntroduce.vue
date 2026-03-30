@@ -128,7 +128,7 @@ const phtoimg = [
 
 .dog_row {
     max-width: 1200px;
-    max-height: 550px; 
+    max-height: 550px;
     margin: 0 auto;
     background-color: $font-color;
 
@@ -139,6 +139,27 @@ const phtoimg = [
     padding: 16px;
     // 允许滚动
     overflow: auto;
+
+    /* 新增：让 Safari 滚动更平滑 */
+    -webkit-overflow-scrolling: touch;
+
+    // --- 适配 Safari 的关键代码 ---
+    :deep(.ant-image) {
+        /* Safari 在 flex-wrap 下需要明确的 flex-basis 或宽度，否则会塌陷 */
+        flex: 0 0 auto;
+        height: 240px; // 显式同步模板中的 height 属性
+
+        .ant-image-img {
+            width: auto; // 允许宽度根据比例自适应
+            max-width: 100%; // 防止超出容器
+            height: 100%; // 填满 240px 的高度
+            display: block;
+            object-fit: cover; // 确保图片不拉伸变形
+
+            /* 修复某些 Safari 版本下图片渲染为 0 宽度的 Bug */
+            min-width: 10px;
+        }
+    }
 }
 
 @media (max-width: 768px) {

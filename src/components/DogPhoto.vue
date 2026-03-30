@@ -7,33 +7,54 @@
         }">
             <img v-lazy="dog.src" :alt="dog.alt" class="dog-img" />
         </div>
+        <div class="load-more-container" v-if="!isAllLoaded || isLoading">
+            <div class="loading-wrapper">
+                <div class="loading-dot"></div>
+                <span>正在探索更多毛孩子...</span>
+            </div>
+        </div>
+        <div class="load-more-container finished" v-else-if="isAllLoaded && !isLoading">
+            <span>所有的毛孩子都在这里啦 🐾</span>
+        </div>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { ref, onMounted, onUnmounted, nextTick, watch, computed } from "vue";
 import { dogs } from "../family/familys";
+import { useWindowScroll } from '@vueuse/core';
 
+// 状态管理
 const containerRef = ref(null);
-const containerOverallHeight = ref(0); // 包含 padding 的总高度
-const colWidth = ref(0);      // 宽度
+const containerOverallHeight = ref(0);
+const colWidth = ref(0);
 const positionedDogs = ref([]);
 
-// 响应式配置：移动端 2 列，平板 3 列，PC 端 4 列
-const getColumnCount = () => {
-    const width = window.innerWidth;
-    if (width < 768) {
-        return 2; // 手机
-    } else if (width >= 768 && width < 1200) {
-        return 3; // 平板或小屏笔记本
-    } else {
-        return 4; // 大屏 PC
-    }
+const pageSize = 8;
+const displayLimit = ref(pageSize);
+const isLoading = ref(false);
+const isAllLoaded = computed(() => displayLimit.value >= dogs.length);
+
+const { y } = useWindowScroll();
+
+// --- 1. 核心修改：图片预加载逻辑 ---
+const preloadImages = (imageUrls) => {
+    const promises = imageUrls.map(url => {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.src = url;
+            // 无论成功还是失败都 resolve，防止某张图坏了导致整个页面卡住
+            img.onload = () => resolve();
+            img.onerror = () => resolve();
+        });
+    });
+    return Promise.all(promises);
 };
+
+// 2. 布局算法优化
 const calculateLayout = () => {
     if (!containerRef.value) return;
 
-    // 1. 获取容器的实时 Padding 数值
     const style = window.getComputedStyle(containerRef.value);
     const paddingTop = parseFloat(style.paddingTop) || 0;
     const paddingLeft = parseFloat(style.paddingLeft) || 0;
@@ -41,50 +62,74 @@ const calculateLayout = () => {
     const paddingBottom = parseFloat(style.paddingBottom) || 0;
 
     const columnCount = getColumnCount();
-    const gap = 12; // 图片之间的间距
-
-    // 2. 计算纯内容的可用宽度 (容器总宽 - 左内边距 - 右内边距)
+    const gap = 12;
     const totalContentWidth = containerRef.value.offsetWidth - paddingLeft - paddingRight;
-
-    // 3. 计算单列宽度
     colWidth.value = (totalContentWidth - (columnCount - 1) * gap) / columnCount;
 
-    // 4. 初始化每一列的高度累加器
     const columnHeights = new Array(columnCount).fill(0);
 
-    positionedDogs.value = dogs.map((dog) => {
-        // 算法：寻找当前最短的那一列
+    // 根据当前的 displayLimit 实时生成带坐标的数组
+    positionedDogs.value = dogs.slice(0, displayLimit.value).map((dog) => {
         const minHeight = Math.min(...columnHeights);
         const columnIndex = columnHeights.indexOf(minHeight);
 
-        // 5. 计算坐标：加上 paddingLeft 和 paddingTop 使其避开边缘
         const left = columnIndex * (colWidth.value + gap) + paddingLeft;
         const top = minHeight + paddingTop;
-
-        // 6. 根据原始比例计算显示高度
         const displayHeight = (dog.height / dog.width) * colWidth.value;
 
-        // 更新该列高度累加
         columnHeights[columnIndex] += displayHeight + gap;
 
-        return {
-            ...dog,
-            displayHeight,
-            top,
-            left,
-        };
+        return { ...dog, displayHeight, top, left };
     });
 
-    // 7. 计算容器最终总高度：最长列高度 + 底部 Padding
-    // (注意：减去最后一个多出来的 gap)
     const maxColumnHeight = Math.max(...columnHeights);
-    containerOverallHeight.value = maxColumnHeight + paddingTop + paddingBottom - gap;
+    containerOverallHeight.value = maxColumnHeight + paddingTop + paddingBottom + 80;
 };
 
-// 窗口缩放处理
-const handleResize = () => {
+// 3. 触底加载流程控制 
+const loadMore = async () => {
+    if (isLoading.value || isAllLoaded.value) return;
+
+    isLoading.value = true;
+
+    //  获取下一批图片的 URL 列表
+    const nextStart = displayLimit.value;
+    const nextEnd = Math.min(nextStart + pageSize, dogs.length);
+    const nextBatch = dogs.slice(nextStart, nextEnd).map(d => d.src);
+
+    // 静默等待图片下载完成
+    await Promise.all([
+        preloadImages(nextBatch),
+        new Promise(r => setTimeout(r, 400))
+    ]);
+
+    // 只有下载完了，才更新 limit 触发 Vue 渲染 DOM
+    displayLimit.value = nextEnd;
     calculateLayout();
+
+    await nextTick();
+    isLoading.value = false;
 };
+
+// --- 其他基础逻辑 ---
+const getColumnCount = () => {
+    const width = window.innerWidth;
+    if (width < 768) return 2;
+    if (width < 1200) return 3;
+    return 4;
+};
+
+watch(y, (newY) => {
+    if (isAllLoaded.value || isLoading.value) return;
+    const threshold = 400;
+    const windowHeight = window.innerHeight;
+    const fullHeight = document.documentElement.scrollHeight;
+    if (newY + windowHeight >= fullHeight - threshold) {
+        loadMore();
+    }
+});
+
+const handleResize = () => calculateLayout();
 
 onMounted(async () => {
     await nextTick();
@@ -98,59 +143,92 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+/* 样式保持你原来的美化版本，无需大改 */
 #dogPhoto {
     position: relative;
     width: 100%;
-    // 这里的 padding 现在会被 JS 正确识别并计算
     padding: 20px 15px;
     box-sizing: border-box;
     margin: 0 auto;
-    background-color: #fff; // 容器背景色
-    transition: height 0.3s ease;
+    background-color: #fff;
+    min-height: 100vh;
+}
 
-    .waterfall-item {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #f0f0f0; // 图片加载前的占位灰色
-        border-radius: 10px;
-        overflow: hidden;
-        // 布局重排时的平滑位动画
-        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+.waterfall-item {
+    position: absolute;
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    overflow: hidden;
+    /* transform 的过渡动画保持 */
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 
-        .dog-img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
+    .dog-img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        opacity: 0;
 
-            // vue3-lazyload 插件状态钩子
-            &[lazy="loading"] {
-                opacity: 0.7;
-                filter: blur(2px);
-            }
-
-            &[lazy="loaded"] {
-                opacity: 1;
-                animation: fadeIn 0.6s ease-out;
-            }
-
-            &[lazy="error"] {
-                background: #eee url('../assets/loading.gif') center no-repeat;
-            }
+        &[lazy="loaded"] {
+            opacity: 1;
+            /* 由于图片已预加载，这个动画会非常顺滑地立即执行 */
+            animation: smoothFadeIn 0.8s ease forwards;
         }
     }
 }
 
-@keyframes fadeIn {
+.load-more-container {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    color: #a0a0a0;
+    font-size: 14px;
+
+    .loading-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #1890ff;
+            border-radius: 50%;
+            animation: pulse 1.2s infinite ease-in-out;
+        }
+    }
+}
+
+@keyframes smoothFadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        filter: blur(5px);
+        transform: scale(0.98);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
     }
 }
 </style>
