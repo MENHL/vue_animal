@@ -16,6 +16,7 @@ body {
   background-color: var(--bg-background-color);
   font-family: "PingFang SC", "Microsoft Yahei",
     "sans-serif";
+  overflow-x: hidden;
 }
 
 
